@@ -4,7 +4,7 @@ import { WeatherService } from '@/services'
 
 const state = {
   city: 'Budapest',
-  iconID: '',
+  iconID: null,
   windSpeed: null,
   minimumTemperature: null,
   maximumTemperature: null,
@@ -41,21 +41,18 @@ const actions = {
   GET_WEATHER ({ commit }) {
     return WeatherService.getCurrentWeather().then(res => {
       const response = res.data
-      if (response.cod === 200) {
-        const payload = {
-          city: response.name,
-          iconID: response.weather[0].icon,
-          windSpeed: response.wind.speed,
-          minTemp: response.main.temp_min,
-          maxTemp: response.main.temp_max,
-          currentTemp: response.main.temp,
-          tempFeelsLike: response.main.feels_like,
-          weatherDesc: response.weather[0].description
-        }
-        return commit('SET_CURRENT_WEATHER', payload)
-      } else {
-        console.error(new Error('[CurrentWeatherStore] Request failed or invalid response - ' + response.cod))
+      if (response.cod !== 200) return new Error('[CurrentWeatherStore] Request failed or invalid response - ' + response.cod)
+      const payload = {
+        city: response.name,
+        iconID: response.weather[0].icon,
+        windSpeed: response.wind.speed,
+        minTemp: response.main.temp_min,
+        maxTemp: response.main.temp_max,
+        currentTemp: response.main.temp,
+        tempFeelsLike: response.main.feels_like,
+        weatherDesc: response.weather[0].description
       }
+      return commit('SET_CURRENT_WEATHER', payload)
     })
   }
 }

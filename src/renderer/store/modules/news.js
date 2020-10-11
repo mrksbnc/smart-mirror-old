@@ -18,18 +18,15 @@ const actions = {
     return NewsService.getTopHeadlines().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
-            if (result.length < 5) {
-              result.push(article)
-            }
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
+            result.push(article)
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   },
 
@@ -37,18 +34,15 @@ const actions = {
     return NewsService.getTopHeadlinesFromCategory().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
-            if (result.length < 5) {
-              result.push(article)
-            }
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
+            result.push(article)
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   },
 
@@ -56,20 +50,17 @@ const actions = {
     return NewsService.getTopHeadlinesFromCategory().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
             if (result.length < 5) {
-              if (result.length < 5) {
-                result.push(article)
-              }
+              result.push(article)
             }
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   },
 
@@ -77,18 +68,15 @@ const actions = {
     return NewsService.getTopHeadlinesFromCategory().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
-            if (result.length < 5) {
-              result.push(article)
-            }
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
+            result.push(article)
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   },
 
@@ -96,18 +84,15 @@ const actions = {
     return NewsService.getTopHeadlinesFromCategory().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
-            if (result.length < 5) {
-              result.push(article)
-            }
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
+            result.push(article)
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   },
 
@@ -115,18 +100,15 @@ const actions = {
     return NewsService.getTopHeadlinesFromCategory().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
-            if (result.length < 5) {
-              result.push(article)
-            }
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
+            result.push(article)
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   },
 
@@ -134,18 +116,15 @@ const actions = {
     return NewsService.getTopHeadlinesFromCategory().then(response => {
       const result = []
       const acceptedSources = news.acceptedSources
-      if (response.status === 200) {
-        response.data.articles.forEach(article => {
-          if (acceptedSources.includes(article.source.name)) {
-            if (result.length < 5) {
-              result.push(article)
-            }
+      if (response.status !== 200) return new Error('[ERROR] [News store] Request failed due to unknown reason!'`[${response.status}]`)
+      response.data.articles.forEach(article => {
+        if (acceptedSources.includes(article.source.name)) {
+          if (result.length < 5) {
+            result.push(article)
           }
-        })
-        commit('SET_NEWS', result)
-      } else {
-        console.error('[News store] Response failed due to unknown reason!')
-      }
+        }
+      })
+      commit('SET_NEWS', result)
     })
   }
 }
