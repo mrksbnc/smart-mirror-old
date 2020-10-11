@@ -30,10 +30,10 @@ const actions = {
       const response = res.data.daily
       for (let i = 1; i < response.length; ++i) {
         var fObject = {
-          temp: 0,
-          date: '',
-          icon: '',
-          description: ''
+          temp: null,
+          date: null,
+          icon: null,
+          description: null
         }
         fObject.temp = Math.round(response[i].temp.day)
         fObject.date = DateTimeService.getDayNameFromParam(response[i].dt * 1000)
