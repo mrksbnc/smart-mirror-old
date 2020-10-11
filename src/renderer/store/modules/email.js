@@ -1,6 +1,7 @@
 'use strict'
 
 import { EmailService } from '@/services'
+import { EmailStoreTypes } from '@/data/EmailStoreTypes'
 
 const state = {
   email: []
@@ -30,29 +31,22 @@ const actions = {
     return EmailService.getUnseenMails().then(emailCollection => {
       var result = []
       if (emailCollection.length === 0) {
-        var baseObject = {
-          from: null,
-          subject: null,
-          type: null
+        result[0] = {
+          from: 'System',
+          subject: 'No unread messages were found!',
+          type: EmailStoreTypes.Notification
         }
-        baseObject.from = 'System'
-        baseObject.subject = 'No unread messages were found!'
-        baseObject.type = 'notification'
-        result.push(baseObject)
       } else {
-        emailCollection.length = 4
-        emailCollection.forEach(email => {
-          var requiredData = {
-            from: null,
-            subject: null,
-            type: null
+        if (emailCollection.length > 4) emailCollection.slice(0, 4)
+        result = emailCollection.map(m => {
+          return {
+            from: m.envelope.from[0].name,
+            subject: m.envelope.subject,
+            type: EmailStoreTypes.Email
           }
-          requiredData.from = email.envelope.from[0].name
-          requiredData.subject = email.envelope.subject
-          requiredData.type = 'email'
-          result.push(requiredData)
         })
       }
+      console.log(result)
       commit('SET_MAILS', result)
     })
   }

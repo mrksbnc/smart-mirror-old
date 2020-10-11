@@ -78,7 +78,6 @@ export default {
       dispatch('GET_WEATHER')
       dispatch('GET_FORECAST')
       dispatch('GET_UNREAD_MAILS')
-      dispatch('GET_TOP_HEADLINES')
       dispatch('GET_ESTIMATED_TRAVELTIME_BY_CAR')
       dispatch('GET_ESTIMATED_TRAVELTIME_BY_PUBLIC_TRANSPORT')
     },
