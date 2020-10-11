@@ -26,21 +26,15 @@ const actions = {
   */
   GET_FORECAST ({ commit }) {
     return WeatherService.getWeatherData().then(res => {
-      var groupedData = []
       const response = res.data.daily
-      for (let i = 1; i < response.length; ++i) {
-        var fObject = {
-          temp: null,
-          date: null,
-          icon: null,
-          description: null
+      var groupedData = response.map(m => {
+        return {
+          temp: Math.round(m.temp.day),
+          date: DateTimeService.getDayNameFromParam(m.dt * 1000),
+          icon: WeatherService.convertWeatherIdToIcon(m.weather[0].icon),
+          description: m.weather[0].main
         }
-        fObject.temp = Math.round(response[i].temp.day)
-        fObject.date = DateTimeService.getDayNameFromParam(response[i].dt * 1000)
-        fObject.icon = WeatherService.convertWeatherIdToIcon(response[i].weather[0].icon)
-        fObject.description = response[i].weather[0].main
-        groupedData.push(fObject)
-      }
+      })
       commit('SET_WEATHER_FORECAST', groupedData)
     })
   }

@@ -43,7 +43,7 @@ export const NewsService = new NewsRepository(news.apiKey, news.baseUrl, news.co
  *
  * @type {EmailRepository}
  */
-const EmailService = new EmailRepository(email.user, email.password, email.host, email.port)
+export const EmailService = new EmailRepository(email.user, email.password, email.host, email.port)
 
 export default {
   NewsService,
