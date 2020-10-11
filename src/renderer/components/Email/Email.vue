@@ -33,10 +33,6 @@ export default {
     CheckCircle
   },
 
-  mounted () {
-    console.log(this.$data)
-  },
-
   computed: {
     emails: function () {
       return this.$store.state.email.email
