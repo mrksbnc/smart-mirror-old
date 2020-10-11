@@ -26,7 +26,7 @@ export const DateTimeService = new DateTimeRepository()
 export const TrafficService = new TrafficRepository(
   traffic.api.apiKey,
   traffic.api.CORS,
-  traffic.api.distanceMatrix.baseUrl,
+  traffic.api.distanceMatrix.baseURL,
   traffic.api.distanceMatrix.outputFormat,
   traffic.api.distanceMatrix.units,
   traffic.location.origin,
