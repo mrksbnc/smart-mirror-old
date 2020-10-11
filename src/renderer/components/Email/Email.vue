@@ -2,7 +2,7 @@
   <div id="email-main-div">
     <div id="email-element-div" v-for="(item, index) in emails" :key="index">
         <div id="icon-box">
-          <span v-if="item.type === 1">
+          <span v-if="item.type === 'email'">
             <Email id="icon"/>
           </span>
           <span v-else>

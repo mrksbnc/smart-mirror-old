@@ -1,7 +1,6 @@
 'use strict'
 
 import { EmailService } from '@/services'
-import { EmailStoreTypes } from '@/data/EmailStoreTypes'
 
 const state = {
   email: []
@@ -34,7 +33,7 @@ const actions = {
         result[0] = {
           from: 'System',
           subject: 'No unread messages were found!',
-          type: EmailStoreTypes.Notification
+          type: 'notification'
         }
       } else {
         if (emailCollection.length > 4) emailCollection.slice(0, 4)
@@ -42,11 +41,10 @@ const actions = {
           return {
             from: m.envelope.from[0].name,
             subject: m.envelope.subject,
-            type: EmailStoreTypes.Email
+            type: 'email'
           }
         })
       }
-      console.log(result)
       commit('SET_MAILS', result)
     })
   }
