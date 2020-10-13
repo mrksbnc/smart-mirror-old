@@ -5,7 +5,7 @@
           <span v-if="item.type === 'email'">
             <Email id="icon"/>
           </span>
-          <span v-else>
+          <span v-if="item.type === 'notification'">
             <CheckCircle id="icon"/>
           </span>
           <span>
